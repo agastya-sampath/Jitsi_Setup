@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Jitsi Setup</string>
+    <string name="meet_id">HelloM8472</string>
+    <string name="server_address">https://meet.jit.si</string>
+</resources>
