@@ -69,6 +69,7 @@ public class MainActivity2 extends AppCompatActivity {
                 .build();
 
         JitsiMeetActivity.launch(this, options);
+
     }
 
     public void returnActivity(View v) {
@@ -81,8 +82,8 @@ public class MainActivity2 extends AppCompatActivity {
         //intent.putExtra("DEFAULT","1");
 
         //TEST CODE FOR MEET ID AND SERVER ADDRESS GIVEN TO ACTIVITY 1
-        //intent.putExtra("MEET_ID","HelloMate");
-        //intent.putExtra("SERVER_ADDRESS","https://meet.jit.si");
+        intent.putExtra("MEET_ID","HelloMate");
+        intent.putExtra("SERVER_ADDRESS","https://meet.jit.si");
 
         startActivity(intent);
     }

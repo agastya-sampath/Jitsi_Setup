@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
+
         }
     }
 
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         intent2.putExtra("MEET_ID",intent.getStringExtra("MEET_ID"));
         intent2.putExtra("SERVER_ADDRESS",intent.getStringExtra("SERVER_ADDRESS"));
         startActivity(intent2);
+
     }
 
     public void returnToPrevious() {
