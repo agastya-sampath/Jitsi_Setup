@@ -2,4 +2,8 @@
     <string name="app_name">Jitsi Setup</string>
     <string name="meet_id">HelloM8472</string>
     <string name="server_address">https://meet.jit.si</string>
+    <string name="change_meet_id">Change Meet ID</string>
+    <string name="return_string">Return</string>
+    <string name="join_string">join</string>
+    <string name="change_server_address">Change Server Address</string>
 </resources>

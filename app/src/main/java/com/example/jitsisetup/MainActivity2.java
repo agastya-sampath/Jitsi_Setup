@@ -2,6 +2,7 @@ package com.example.jitsisetup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -18,6 +19,26 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        Intent intent = getIntent();
+        if(intent.hasExtra("MEET_ID") && intent.hasExtra("SERVER_ADDRESS")) {
+            //EditText editText = findViewById(R.id.meet_name);
+            //editText.setText(intent.getStringExtra("MEET_ID"));
+
+            //EditText editText2 = findViewById(R.id.server_url);
+            //editText2.setText(intent.getStringExtra("SERVER_ADDRESS"));
+            String meet=intent.getStringExtra("MEET_ID");
+            String server=intent.getStringExtra("SERVER_ADDRESS");
+
+            assert meet != null;
+            assert server != null;
+            if(meet.length()>0 && server.length()>0) {
+                try {
+                    joinMeet(meet, server);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     public void joinMeet(View v) throws MalformedURLException {
@@ -38,5 +59,30 @@ public class MainActivity2 extends AppCompatActivity {
             JitsiMeetActivity.launch(this, options);
 
         }
+    }
+
+    public void joinMeet(String meet, String server) throws MalformedURLException {
+        JitsiMeetConferenceOptions
+                options = new JitsiMeetConferenceOptions.Builder()
+                .setServerURL(new URL(server))
+                .setRoom(meet)
+                .build();
+
+        JitsiMeetActivity.launch(this, options);
+    }
+
+    public void returnActivity(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
+
+        //TEST CODE TO CHECK ABSTRACTION OF MODULE
+
+        //TEST CODE FOR DEFAULT LAUNCH OF ACTIVITY 1
+        //intent.putExtra("DEFAULT","1");
+
+        //TEST CODE FOR MEET ID AND SERVER ADDRESS GIVEN TO ACTIVITY 1
+        //intent.putExtra("MEET_ID","HelloMate");
+        //intent.putExtra("SERVER_ADDRESS","https://meet.jit.si");
+
+        startActivity(intent);
     }
 }

@@ -20,6 +20,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+        if(intent.hasExtra("MEET_ID") && intent.hasExtra("SERVER_ADDRESS")) {
+            //String meet_id = intent.getStringExtra("MEET_ID");
+            //String server_address = intent.getStringExtra("SERVER_ADDRESS");
+            onIDReceive(intent);
+        }
+        else if(intent.hasExtra("DEFAULT")) {
+            try {
+                onDefaultClick(getCurrentFocus());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void onDefaultClick(View v) throws MalformedURLException {
@@ -37,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
     public void onIDClick(View v) {
         Intent intent= new Intent(this, MainActivity2.class);
         startActivity(intent);
+    }
+
+    public void onIDReceive(Intent intent) {
+        Intent intent2= new Intent(this, MainActivity2.class);
+        intent2.putExtra("MEET_ID",intent.getStringExtra("MEET_ID"));
+        intent2.putExtra("SERVER_ADDRESS",intent.getStringExtra("SERVER_ADDRESS"));
+        startActivity(intent2);
     }
 
 
