@@ -72,6 +72,7 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     public void returnActivity(View v) {
+        //Modify to return to original activity that called it in actual app using an intent
         Intent intent = new Intent(this, MainActivity.class);
 
         //TEST CODE TO CHECK ABSTRACTION OF MODULE

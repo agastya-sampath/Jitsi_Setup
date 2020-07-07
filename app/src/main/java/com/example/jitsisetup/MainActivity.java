@@ -59,5 +59,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent2);
     }
 
+    public void returnToPrevious() {
+        //Implement to return to original activity that called it in actual app using an intent
+    }
+
 
 }
