@@ -20,6 +20,8 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         Intent intent = getIntent();
+
+        //To implement onIDReceive from first MainActivity - start meet with received meet ID and server address
         if(intent.hasExtra("MEET_ID") && intent.hasExtra("SERVER_ADDRESS")) {
             //EditText editText = findViewById(R.id.meet_name);
             //editText.setText(intent.getStringExtra("MEET_ID"));
@@ -73,17 +75,18 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     public void returnActivity(View v) {
-        //Modify to return to original activity that called it in actual app using an intent
+        //Modify MainActivity.class to <OriginalActivity>.class to return to original activity that called it in actual app using an intent
         Intent intent = new Intent(this, MainActivity.class);
 
         //TEST CODE TO CHECK ABSTRACTION OF MODULE
+        //USE WITH MainActivity.class intent
 
         //TEST CODE FOR DEFAULT LAUNCH OF ACTIVITY 1
         //intent.putExtra("DEFAULT","1");
 
         //TEST CODE FOR MEET ID AND SERVER ADDRESS GIVEN TO ACTIVITY 1
-        intent.putExtra("MEET_ID","HelloMate");
-        intent.putExtra("SERVER_ADDRESS","https://meet.jit.si");
+        //intent.putExtra("MEET_ID","HelloMate");
+        //intent.putExtra("SERVER_ADDRESS","https://meet.jit.si");
 
         startActivity(intent);
     }

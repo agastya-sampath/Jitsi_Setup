@@ -6,4 +6,8 @@
     <string name="return_string">Return</string>
     <string name="join_string">join</string>
     <string name="change_server_address">Change Server Address</string>
+    <string name="use_default_meet_id">USE DEFAULT MEET ID</string>
+    <string name="enter_meet_id">ENTER MEET ID</string>
+    <string name="start_meeting">Start Meeting</string>
+    <string name="return_to_prev">Return</string>
 </resources>

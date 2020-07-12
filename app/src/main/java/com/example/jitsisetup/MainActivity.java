@@ -21,11 +21,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent intent = getIntent();
+
+        //Check if Original Activity call gave meet ID and server address, and start meet immediately if so
         if(intent.hasExtra("MEET_ID") && intent.hasExtra("SERVER_ADDRESS")) {
             //String meet_id = intent.getStringExtra("MEET_ID");
             //String server_address = intent.getStringExtra("SERVER_ADDRESS");
             onIDReceive(intent);
         }
+        //Check if the call wants to start meet with default Meet ID and Server address
         else if(intent.hasExtra("DEFAULT")) {
             try {
                 onDefaultClick(getCurrentFocus());
@@ -61,8 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void returnToPrevious() {
+    public void returnToPrevious(View v) {
         //Implement to return to original activity that called it in actual app using an intent
+        //Intent intent = new Intent(this,<activity>.class);
+        //startActivity(intent)
     }
 
 
